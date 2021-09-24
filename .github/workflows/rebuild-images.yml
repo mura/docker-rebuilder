@@ -23,5 +23,5 @@ jobs:
           DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
           DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
           GITHUB_OWNER: ${{ github.repository_owner }}
-          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PAT: ${{ secrets.GH_PAT }}
         run: node rebuild.js
