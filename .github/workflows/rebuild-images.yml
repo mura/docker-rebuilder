@@ -1,0 +1,27 @@
+name: rebuild-images
+
+on:
+  workflow_dispatch:
+
+env:
+  TZ: "Asia/Tokyo"
+
+jobs:
+  rebuild-images:
+    name: Rebuild images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - run: npm ci
+      - name: Check and Rebuild images
+        env:
+          DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+          DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+          GITHUB_OWNER: ${{ github.repository_owner }}
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+        run: node rebuild.js
