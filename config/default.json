@@ -1,0 +1,34 @@
+{
+    "endpoint": {
+        "docker_hub": "https://hub.docker.com/v2"
+    },
+    "base_image": {
+        "ariang": [
+            { "image": "library/golang", "tag": "1.16-buster" },
+            { "image": "library/debian", "tag": "buster-slim" }
+        ],
+        "seamine": [
+            { "image": "library/node", "tag": "14-buster-slim" }
+        ],
+        "cacti-backend": [
+            { "image": "library/php", "tag": "7.4-fpm-buster" }
+        ]
+    },
+    "workflow": {
+        "ariang": {
+            "repo": "docker-ariang",
+            "workflow_id": "action.yml",
+            "ref": "master"
+        },
+        "seamine": {
+            "repo": "seamine",
+            "workflow_id": "action.yml",
+            "ref": "main"
+        },
+        "cacti-backend": {
+            "repo": "docker-cacti",
+            "workflow_id": "update-backend.yml",
+            "ref": "main"
+        }
+    }
+}
