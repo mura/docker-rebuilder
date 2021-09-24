@@ -2,6 +2,7 @@ require('dotenv').config()
 const { DockerHub } = require('./lib/dockerhub')
 const { Github } = require('./lib/github')
 const config = require('config')
+const core = require('@actions/core')
 
 const baseImages = config.get('base_image')
 const workflows = config.get('workflow')
@@ -36,7 +37,7 @@ const dispatcheWorkflowIfNeeded = async (container, updatedAt) => {
     })
 }
 
-(async () => {
+const rebuild = async () => {
     await dockerHub.login(process.env.DOCKER_HUB_USERNAME, process.env.DOCKER_HUB_TOKEN);
     (await github.containers()).forEach(async (container) => {
         const updatedAt = await github.lastUpdatedAt(container)
@@ -47,4 +48,12 @@ const dispatcheWorkflowIfNeeded = async (container, updatedAt) => {
         })
         await dispatcheWorkflowIfNeeded(container, updatedAt)
     })
+}
+
+(async () => {
+    try {
+        await rebuild()
+    } catch (err) {
+        core.setFailed(`Action failed with error ${err}`)
+    }
 })();
