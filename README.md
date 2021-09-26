@@ -1,4 +1,6 @@
 # docker-rebuilder
-![badge](https://github.com/mura/docker-rebuilder/actions/workflows/rebuild-images.yml/badge.svg)
+<a href="https://github.com/mura/docker-rebuilder/actions/workflows/rebuild-images.yml">
+  <img src="https://github.com/mura/docker-rebuilder/actions/workflows/rebuild-images.yml/badge.svg">
+</a>
 
-GitHub上にあるDockerイメージをベースイメージが更新されたらビルドするやつ
+GitHub上にあるDockerイメージのベースイメージが更新されたらビルドするやつ
