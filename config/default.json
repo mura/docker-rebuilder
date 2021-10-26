@@ -4,14 +4,14 @@
     },
     "base_image": {
         "ariang": [
-            { "image": "library/golang", "tag": "1.16-buster" },
-            { "image": "library/debian", "tag": "buster-slim" }
+            { "image": "library/golang", "tag": "1.16-bullseye" },
+            { "image": "library/debian", "tag": "bullseye-slim" }
         ],
         "seamine": [
-            { "image": "library/node", "tag": "14-buster-slim" }
+            { "image": "library/node", "tag": "14-bullseye-slim" }
         ],
         "cacti-backend": [
-            { "image": "library/php", "tag": "7.4-fpm-buster" }
+            { "image": "library/php", "tag": "7.4-fpm-bullseye" }
         ]
     },
     "workflow": {
