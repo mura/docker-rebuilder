@@ -13,7 +13,7 @@
         "cacti-backend": [
             { "image": "library/php", "tag": "7.4-fpm-bullseye" }
         ],
-        "docker-waterfall": [
+        "waterfall": [
             { "image": "library/debian", "tag": "bullseye-slim" }
         ]
     },
@@ -33,7 +33,7 @@
             "workflow_id": "update-backend.yml",
             "ref": "main"
         },
-        "cacti-waterfall": {
+        "waterfall": {
             "repo": "docker-waterfall",
             "workflow_id": "action.yml",
             "ref": "main"
