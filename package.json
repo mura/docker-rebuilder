@@ -10,10 +10,10 @@
   "license": "ISC",
   "private": true,
   "dependencies": {
-    "@actions/core": "^1.5.0",
-    "@octokit/core": "^3.5.1",
-    "config": "^3.3.6",
-    "dotenv": "^10.0.0",
-    "got": "^11.8.2"
+    "@actions/core": "^1.6.0",
+    "@octokit/core": "^3.6.0",
+    "config": "^3.3.7",
+    "dotenv": "^16.0.0",
+    "got": "^11.8.3"
   }
 }
