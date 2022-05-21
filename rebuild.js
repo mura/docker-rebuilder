@@ -40,15 +40,17 @@ const dispatcheWorkflowIfNeeded = async (container, updatedAt) => {
 
 const rebuild = async () => {
     await dockerHub.login(process.env.DOCKER_HUB_USERNAME, process.env.DOCKER_HUB_TOKEN);
-    (await github.containers()).forEach(async (container) => {
-        const updatedAt = await github.lastUpdatedAt(container)
-        if (!updatedAt) return
-        console.log({
-            container: container,
-            updated_at: updatedAt
+    (await github.containers())
+        .filter(contailer => baseImages[container])
+        .forEach(async (container) => {
+            const updatedAt = await github.lastUpdatedAt(container)
+            if (!updatedAt) return
+            console.log({
+                container: container,
+                updated_at: updatedAt
+            })
+            await dispatcheWorkflowIfNeeded(container, updatedAt)
         })
-        await dispatcheWorkflowIfNeeded(container, updatedAt)
-    })
 }
 
 (async () => {
