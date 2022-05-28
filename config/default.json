@@ -15,6 +15,9 @@
         ],
         "waterfall": [
             { "image": "library/debian", "tag": "bullseye-slim" }
+        ],
+        "linuxbrew": [
+            { "image": "library/debian", "tag": "bullseye-slim" }
         ]
     },
     "workflow": {
