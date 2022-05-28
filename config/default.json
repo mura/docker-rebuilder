@@ -40,6 +40,11 @@
             "repo": "docker-waterfall",
             "workflow_id": "action.yml",
             "ref": "main"
+        },
+        "linuxbrew": {
+            "repo": "docker-linuxbrew",
+            "workflow_id": "action.yml",
+            "ref": "main"
         }
     }
 }
