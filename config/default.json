@@ -18,6 +18,9 @@
         ],
         "linuxbrew": [
             { "image": "library/debian", "tag": "bullseye-slim" }
+        ],
+        "telegraf": [
+            { "image": "library/telegraf", "tag": "latest" }
         ]
     },
     "workflow": {
@@ -43,6 +46,11 @@
         },
         "linuxbrew": {
             "repo": "docker-linuxbrew",
+            "workflow_id": "action.yml",
+            "ref": "main"
+        },
+        "telegraf": {
+            "repo": "docker-telegraf",
             "workflow_id": "action.yml",
             "ref": "main"
         }
