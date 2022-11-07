@@ -1,8 +1,9 @@
-require('dotenv').config()
-const { DockerHub } = require('./lib/dockerhub')
-const { Github } = require('./lib/github')
-const config = require('config')
-const core = require('@actions/core')
+import * as dotenv from 'dotenv'
+dotenv.config()
+import { DockerHub } from './lib/dockerhub.js'
+import { Github } from './lib/github.js'
+import config from 'config'
+import core from '@actions/core'
 
 const baseImages = config.get('base_image')
 const workflows = config.get('workflow')
