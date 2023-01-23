@@ -11,7 +11,7 @@
             { "image": "library/node", "tag": "14-bullseye-slim" }
         ],
         "cacti-backend": [
-            { "image": "library/php", "tag": "7.4-fpm-bullseye" }
+            { "image": "library/php", "tag": "8.2-fpm-bullseye" }
         ],
         "waterfall": [
             { "image": "library/debian", "tag": "bullseye-slim" }
