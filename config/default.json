@@ -25,9 +25,9 @@
     },
     "workflow": {
         "ariang": {
-            "repo": "docker-ariang",
-            "workflow_id": "action.yml",
-            "ref": "master"
+            "repo": "dockerfiles",
+            "workflow_id": "ariang-ci.yml",
+            "ref": "main"
         },
         "seamine": {
             "repo": "seamine",
@@ -45,8 +45,8 @@
             "ref": "main"
         },
         "linuxbrew": {
-            "repo": "docker-linuxbrew",
-            "workflow_id": "action.yml",
+            "repo": "dockerfiles",
+            "workflow_id": "linuxbrew-ci.yml",
             "ref": "main"
         },
         "telegraf": {
