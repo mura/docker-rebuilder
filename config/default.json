@@ -35,8 +35,8 @@
             "ref": "main"
         },
         "cacti-backend": {
-            "repo": "docker-cacti",
-            "workflow_id": "update-backend.yml",
+            "repo": "dockerfiles",
+            "workflow_id": "cacti-backend-ci.yml",
             "ref": "main"
         },
         "waterfall": {
