@@ -50,8 +50,8 @@
             "ref": "main"
         },
         "telegraf": {
-            "repo": "docker-telegraf",
-            "workflow_id": "action.yml",
+            "repo": "dockerfiles",
+            "workflow_id": "telegraf-ci.yml",
             "ref": "main"
         }
     }
