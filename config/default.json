@@ -16,7 +16,7 @@
     "seamine": [
       {
         "image": "library/node",
-        "tag": "14-bullseye-slim"
+        "tag": "18-bullseye-slim"
       }
     ],
     "cacti-backend": [
