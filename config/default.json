@@ -6,29 +6,29 @@
     "ariang": [
       {
         "image": "library/golang",
-        "tag": "1.20-bullseye"
+        "tag": "1.20-bookworm"
       },
       {
         "image": "library/debian",
-        "tag": "bullseye-slim"
+        "tag": "bookworm-slim"
       }
     ],
     "seamine": [
       {
         "image": "library/node",
-        "tag": "18-bullseye-slim"
+        "tag": "18-bookworm-slim"
       }
     ],
     "cacti-backend": [
       {
         "image": "library/php",
-        "tag": "8.2-fpm-bullseye"
+        "tag": "8.2-fpm-bookworm"
       }
     ],
     "linuxbrew": [
       {
         "image": "library/debian",
-        "tag": "bullseye-slim"
+        "tag": "bookworm-slim"
       }
     ],
     "telegraf": [
