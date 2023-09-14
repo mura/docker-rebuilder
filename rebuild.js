@@ -22,16 +22,22 @@ const dispatchWorkflow = async (container) => {
 }
 
 const dispatcheWorkflowIfNeeded = async (container, updatedAt) => {
-  const found = baseImages[container].find(async (base) => {
-    const tag = await dockerHub.tag(base.image, base.tag)
-    const tagLastPushed = new Date(tag.tag_last_pushed)
-    return tagLastPushed && updatedAt < tagLastPushed
-  })
+  const found = baseImages[container]
+    .map(async (base) => {
+      const tag = await dockerHub.tag(base.image, base.tag)
+      const tagLastPushed = new Date(tag.tag_last_pushed)
+      return {
+        base,
+        tagLastPushed
+      }
+    })
+    .find(res => res.tagLastPushed && updatedAt < res.tagLastPushed)
+
   if (found) {
     console.log({
       container,
-      ...base,
-      tag_last_pushed: tagLastPushed,
+      ...found.base,
+      tag_last_pushed: found.tagLastPushed,
       image_updated: updatedAt < tagLastPushed
     })
     await dispatchWorkflow(container)
