@@ -22,21 +22,20 @@ const dispatchWorkflow = async (container) => {
 }
 
 const dispatcheWorkflowIfNeeded = async (container, updatedAt) => {
-  baseImages[container].forEach(async (base) => {
+  const found = baseImages[container].find(async (base) => {
     const tag = await dockerHub.tag(base.image, base.tag)
     const tagLastPushed = new Date(tag.tag_last_pushed)
-    if (!tagLastPushed) return
-    if (updatedAt < tagLastPushed) {
-      console.log({
-        container,
-        ...base,
-        tag_last_pushed: tagLastPushed,
-        image_updated: updatedAt < tagLastPushed
-      })
-      await dispatchWorkflow(container)
-      return
-    }
+    return tagLastPushed && updatedAt < tagLastPushed
   })
+  if (found) {
+    console.log({
+      container,
+      ...base,
+      tag_last_pushed: tagLastPushed,
+      image_updated: updatedAt < tagLastPushed
+    })
+    await dispatchWorkflow(container)
+  }
 }
 
 const rebuild = async () => {
