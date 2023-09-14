@@ -21,26 +21,20 @@ const dispatchWorkflow = async (container) => {
   console.log(`dispatched ${workflow.repo}: ${workflow.workflow_id}`)
 }
 
-const dispatcheWorkflowIfNeeded = async (container, updatedAt) => {
-  const found = baseImages[container]
-    .map(async (base) => {
-      const tag = await dockerHub.tag(base.image, base.tag)
-      const tagLastPushed = new Date(tag.tag_last_pushed)
-      return {
-        base,
-        tagLastPushed
-      }
-    })
-    .find(res => res.tagLastPushed && updatedAt < res.tagLastPushed)
+const dispatchWorkflowIfNeeded = async (container, updatedAt) => {
+  for (const base of baseImages[container]) {
+    const tag = await dockerHub.tag(base.image, base.tag)
+    const tagLastPushed = new Date(tag.tag_last_pushed)
+    if (!tagLastPushed || updatedAt >= tagLastPushed) continue
 
-  if (found) {
     console.log({
       container,
-      ...found.base,
-      tag_last_pushed: found.tagLastPushed,
+      ...base,
+      tag_last_pushed: tagLastPushed,
       image_updated: updatedAt < tagLastPushed
     })
     await dispatchWorkflow(container)
+    break
   }
 }
 
@@ -55,7 +49,7 @@ const rebuild = async () => {
         container: container,
         updated_at: updatedAt
       })
-      await dispatcheWorkflowIfNeeded(container, updatedAt)
+      await dispatchWorkflowIfNeeded(container, updatedAt)
     })
 }
 
