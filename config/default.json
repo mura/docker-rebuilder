@@ -16,7 +16,7 @@
     "seamine": [
       {
         "image": "library/node",
-        "tag": "18-bookworm-slim"
+        "tag": "20-bookworm-slim"
       }
     ],
     "cacti-backend": [
