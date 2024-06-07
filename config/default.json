@@ -22,7 +22,7 @@
     "cacti-backend": [
       {
         "image": "library/php",
-        "tag": "8.2-fpm-bookworm"
+        "tag": "8.3-fpm-bookworm"
       }
     ],
     "linuxbrew": [
