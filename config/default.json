@@ -6,7 +6,7 @@
     "ariang": [
       {
         "image": "library/golang",
-        "tag": "1.20-bookworm"
+        "tag": "1.23-bookworm"
       },
       {
         "image": "library/debian",
