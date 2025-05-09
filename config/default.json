@@ -36,6 +36,26 @@
         "image": "library/telegraf",
         "tag": "latest"
       }
+    ],
+    "cheap-switch-exporter": [
+      {
+        "image": "library/golang",
+        "tag": "1.24-bookworm"
+      },
+      {
+        "image": "library/debian",
+        "tag": "bookworm-slim"
+      }
+    ],
+    "ethersrv": [
+      {
+        "image": "library/debian",
+        "tag": "bookworm"
+      },
+      {
+        "image": "library/debian",
+        "tag": "bookworm-slim"
+      }
     ]
   },
   "workflow": {
@@ -62,6 +82,16 @@
     "telegraf": {
       "repo": "dockerfiles",
       "workflow_id": "telegraf-ci.yml",
+      "ref": "main"
+    },
+    "cheap-switch-exporter": {
+      "repo": "dockerfiles",
+      "workflow_id": "cheap-switch-exporter-ci.yml",
+      "ref": "main"
+    },
+    "ethersrv": {
+      "repo": "dockerfiles",
+      "workflow_id": "ethersrv-ci.yml",
       "ref": "main"
     }
   }
