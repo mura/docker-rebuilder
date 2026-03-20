@@ -15,11 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: 'npm'
+      - name: Setup mise
+        uses: jdx/mise-action@v2
       - run: npm ci
       - name: Check and Rebuild images
         env:
