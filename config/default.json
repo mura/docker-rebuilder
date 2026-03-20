@@ -6,11 +6,11 @@
     "ariang": [
       {
         "image": "library/golang",
-        "tag": "1.23-bookworm"
+        "tag": "trixie"
       },
       {
         "image": "library/debian",
-        "tag": "bookworm-slim"
+        "tag": "trixie-slim"
       }
     ],
     "seamine": [
@@ -22,13 +22,13 @@
     "cacti-backend": [
       {
         "image": "library/php",
-        "tag": "8.3-fpm-bookworm"
+        "tag": "8.5-fpm-trixie"
       }
     ],
     "linuxbrew": [
       {
         "image": "library/debian",
-        "tag": "bookworm-slim"
+        "tag": "trixie-slim"
       }
     ],
     "telegraf": [
@@ -40,21 +40,21 @@
     "cheap-switch-exporter": [
       {
         "image": "library/golang",
-        "tag": "1.24-bookworm"
+        "tag": "trixie"
       },
       {
         "image": "library/debian",
-        "tag": "bookworm-slim"
+        "tag": "trixie-slim"
       }
     ],
     "ethersrv": [
       {
         "image": "library/debian",
-        "tag": "bookworm"
+        "tag": "trixie"
       },
       {
         "image": "library/debian",
-        "tag": "bookworm-slim"
+        "tag": "trixie-slim"
       }
     ]
   },
