@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv'
 dotenv.config()
 import { rebuild } from './lib/rebuilder.js'
-import core from '@actions/core'
+import * as core from '@actions/core'
 
 try {
   await rebuild()
