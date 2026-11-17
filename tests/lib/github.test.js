@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { Github } from '../../lib/github.js'
 
 const mockRequest = vi.fn()
+mockRequest.defaults = vi.fn().mockReturnValue(mockRequest)
 
 vi.mock('@octokit/core', () => ({
   Octokit: vi.fn().mockImplementation(function() { this.request = mockRequest })
@@ -11,8 +12,18 @@ describe('Github', () => {
   let github
 
   beforeEach(() => {
-    github = new Github({ owner: 'testowner', auth: 'test-pat' })
     vi.clearAllMocks()
+    github = new Github({ owner: 'testowner', auth: 'test-pat' })
+  })
+
+  describe('constructor()', () => {
+    it('GitHub API バージョン 2026-03-10 をデフォルトヘッダーに設定する', () => {
+      expect(mockRequest.defaults).toHaveBeenCalledWith({
+        headers: {
+          'X-GitHub-Api-Version': '2026-03-10'
+        }
+      })
+    })
   })
 
   describe('containers()', () => {
